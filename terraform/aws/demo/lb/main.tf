@@ -25,7 +25,7 @@ resource "aws_lb_target_group" "airbyte-webapp" {
   name     = "${var.name}-airbyte-webapp-tg"
   port     = 8000
   protocol = "HTTP"
-  vpc_id = data.aws_vpc.vpc.id
+  vpc_id   = data.aws_vpc.vpc.id
 
   health_check {
     path = "/"
@@ -42,7 +42,7 @@ resource "aws_lb_target_group" "airbyte-api" {
   name     = "${var.name}-airbyte-api-tg"
   port     = 8001
   protocol = "HTTP"
-  vpc_id = data.aws_vpc.vpc.id
+  vpc_id   = data.aws_vpc.vpc.id
 
   health_check {
     path = "/api/v1/health"
@@ -60,11 +60,11 @@ resource "aws_lb_target_group_attachment" "airbyte-api" {
 resource "aws_lb" "airbyte-alb" {
   enable_deletion_protection = true
 
-  name               = "${var.name}-airbyte-alb"
+  name = "${var.name}-airbyte-alb"
 
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [
+  security_groups = [
     data.aws_security_group.default-sg.id,
     aws_security_group.airbyte-alb-sg.id
   ]
@@ -142,7 +142,7 @@ resource "aws_lb_listener_rule" "allow-all-api" {
   condition {
     http_header {
       http_header_name = "cookie"
-      values = ["*hack-auth-token=${var.auth-secret}*"]
+      values           = ["*hack-auth-token=${var.auth-secret}*"]
     }
   }
 

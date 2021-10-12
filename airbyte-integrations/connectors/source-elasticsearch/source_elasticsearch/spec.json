@@ -9,21 +9,16 @@
     "properties": {
       "host": {
         "type": "string",
-        "description": "ElasticSearch host",
-      },
-      "port": {
-        "type": "string",
-        "description": "ElasticSearch port",
-        "default": 9200,
+        "description": "ElasticSearch host"
       },
       "username": {
         "type": "string",
-        "description": "Username with access to the ElasticSearch cluster",
+        "description": "Username with access to the ElasticSearch cluster"
       },
       "password": {
         "type": "string",
         "description": "Password for the username",
-        "airbyte_secret": true,
+        "airbyte_secret": true
       }
     }
   }
