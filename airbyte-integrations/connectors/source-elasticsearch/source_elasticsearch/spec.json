@@ -4,12 +4,26 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Elasticsearch Spec",
     "type": "object",
-    "required": ["TODO"],
+    "required": ["host", "username", "password"],
     "additionalProperties": false,
     "properties": {
-      "TODO: This schema defines the configuration required for the source. This usually involves metadata such as database and/or authentication information.": {
+      "host": {
         "type": "string",
-        "description": "describe me"
+        "description": "ElasticSearch host",
+      },
+      "port": {
+        "type": "string",
+        "description": "ElasticSearch port",
+        "default": 9200,
+      },
+      "username": {
+        "type": "string",
+        "description": "Username with access to the ElasticSearch cluster",
+      },
+      "password": {
+        "type": "string",
+        "description": "Password for the username",
+        "airbyte_secret": true,
       }
     }
   }
